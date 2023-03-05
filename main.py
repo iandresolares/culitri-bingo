@@ -4,17 +4,16 @@ from PySide6.QtWidgets import QApplication
 from culitri_bingo import CulitriBingo
 
 
-def main():
-    app = QApplication(sys.argv)
+def main(argv):
+    app = QApplication(argv)
     window = CulitriBingo()
-    window.initialize_buttons()
     window.show()
     app.exec()
 
 
 if __name__ == "__main__":
     try:
-        main()
+        main(sys.argv)
     except KeyboardInterrupt:
         pass
     finally:
