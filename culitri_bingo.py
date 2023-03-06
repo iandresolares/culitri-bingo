@@ -31,7 +31,7 @@ class CulitriBingo(QMainWindow):
         self.latest_balls_widget = LatestBallsWidget()
         self.bingo_balls = BingoBalls()
 
-        self.game_logic = GameLogic()
+        self.game_logic = GameLogic(self.bingo_balls)
 
         window_layout.addWidget(self.control_buttons, 0, 0)
         window_layout.addWidget(self.latest_balls_widget, 0, 1)
@@ -40,9 +40,7 @@ class CulitriBingo(QMainWindow):
         central_widget.setLayout(window_layout)
         self.setCentralWidget(central_widget)
 
-        self.control_buttons.start_button.clicked.connect(
-            partial(self.game_logic.start, self.bingo_balls)
-        )
+        self.control_buttons.start_button.clicked.connect(self.game_logic.start)
         self.control_buttons.stop_button.clicked.connect(self.game_logic.stop)
         self.control_buttons.reset_button.clicked.connect(self.game_logic.reset)
 

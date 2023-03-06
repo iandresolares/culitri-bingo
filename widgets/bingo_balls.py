@@ -29,3 +29,7 @@ class BingoBalls(QWidget):
         self.balls[ball_number - 1].setPixmap(
             QPixmap(f"resources/balls/bingo_ball2.jpg").scaled(75, 75)
         )
+
+    def reset_balls(self):
+        for ball in self.balls:
+            ball.setPixmap(QPixmap(f"resources/balls/bingo_ball.png").scaled(75, 75))
